@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Himachal Tour Packages — Explore Himachal Pradesh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ocean: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e'
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e'
+                        },
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706'
+                        },
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['DM Sans', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero': "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1800&q=80')",
+                        'cta': "url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=1800&q=80')",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hero parallax feel */
+        .hero-bg {
+            background: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1800&q=80') center/cover no-repeat;
+        }
+
+        .cta-bg {
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1800&q=80') center/cover no-repeat;
+        }
+
+        /* Card hover lift */
+        .tour-card {
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 48px -12px rgba(0, 0, 0, .25);
+        }
+
+        /* Accordion */
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease, padding .3s ease;
+        }
+
+        .faq-body.open {
+            max-height: 400px;
+        }
+
+        .faq-icon {
+            transition: transform .3s ease;
+        }
+
+        .faq-icon.open {
+            transform: rotate(45deg);
+        }
+
+        /* Star rating */
+        .stars::before {
+            content: '★★★★★';
+        }
+
+        /* Gradient text */
+        .grad-text {
+            background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Timeline */
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 40px;
+            bottom: -16px;
+            width: 2px;
+            background: linear-gradient(to bottom, #0ea5e9, #14b8a6);
+        }
+
+        /* Nav link underline */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #f59e0b;
+            transition: width .3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Pulse badge */
+        @keyframes pulse-ring {
+            0% {
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, .4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+            }
+        }
+
+        .pulse-badge {
+            animation: pulse-ring 2s infinite;
+        }
+
+        /* Fade-in on load */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            animation: fadeUp .8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: .2s;
+            opacity: 0;
+        }
+
+        .delay-2 {
+            animation-delay: .4s;
+            opacity: 0;
+        }
+
+        .delay-3 {
+            animation-delay: .6s;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2">
+                <span
+                    class="w-8 h-8 rounded-lg bg-gradient-to-br from-ocean-500 to-teal-500 flex items-center justify-center text-white font-bold text-sm">H</span>
+                <span class="font-display text-xl font-700 text-slate-900">Himachal<span
+                        class="text-ocean-500">Tours</span></span>
+            </a>
+            <!-- Desktop nav -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#tours" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-900">Tours</a>
+                <a href="#details"
+                    class="nav-link text-sm font-medium text-slate-600 hover:text-slate-900">Itinerary</a>
+                <a href="#why-us" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-900">Why Us</a>
+                <a href="#testimonials"
+                    class="nav-link text-sm font-medium text-slate-600 hover:text-slate-900">Reviews</a>
+                <a href="#faq" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-900">FAQ</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a href="#contact"
+                    class="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-ocean-600">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    +91 98765 43210
+                </a>
+                <a href="#search"
+                    class="bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-4 py-2 rounded-full transition">Book
+                    Now</a>
+                <!-- Mobile menu button -->
+                <button id="menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100" aria-label="Open menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile nav -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 py-4 space-y-3">
+            <a href="#tours" class="block text-sm font-medium text-slate-700 hover:text-ocean-600">Tours</a>
+            <a href="#details" class="block text-sm font-medium text-slate-700 hover:text-ocean-600">Itinerary</a>
+            <a href="#why-us" class="block text-sm font-medium text-slate-700 hover:text-ocean-600">Why Us</a>
+            <a href="#testimonials" class="block text-sm font-medium text-slate-700 hover:text-ocean-600">Reviews</a>
+            <a href="#faq" class="block text-sm font-medium text-slate-700 hover:text-ocean-600">FAQ</a>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero-bg relative min-h-screen flex items-center justify-center pt-16">
+        <!-- Gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-ocean-900/60 to-teal-900/40"></div>
+        <!-- Floating decorative circles -->
+        <div class="absolute top-1/4 right-10 w-64 h-64 rounded-full bg-ocean-400/10 blur-3xl pointer-events-none">
+        </div>
+        <div class="absolute bottom-1/4 left-10 w-96 h-96 rounded-full bg-teal-400/10 blur-3xl pointer-events-none">
+        </div>
+
+        <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Left: Text -->
+                <div class="text-center md:text-left">
+                    <span
+                        class="fade-up inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 pulse-badge"></span>
+                        Over 10,000 Happy Travelers Worldwide
+                    </span>
+                    <h1
+                        class="fade-up delay-1 font-display text-5xl sm:text-6xl lg:text-7xl font-900 text-white leading-tight mb-6">
+                        Himachal Tour Packages<br />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">Mountains. Valleys. Memories.</span>
+                    </h1>
+                    <p class="fade-up delay-2 text-lg sm:text-xl text-slate-300 max-w-2xl mb-10 leading-relaxed">
+                        Discover the magic of Himachal Pradesh with our curated tour packages. From Shimla's colonial charm to Manali's snowy peaks, experience adventure, culture, and nature in the heart of the Himalayas.
+                    </p>
+                    <div class="fade-up delay-3 flex flex-col sm:flex-row gap-4 md:justify-start justify-center">
+                        <a href="#search"
+                            class="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-white font-semibold text-base px-8 py-4 rounded-full shadow-lg shadow-amber-500/30 transition-all hover:scale-105">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            Book Now
+                        </a>
+                        <a href="#tours"
+                            class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold text-base px-8 py-4 rounded-full backdrop-blur-sm transition-all hover:scale-105">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                            View Packages
+                        </a>
+                    </div>
+                    <div class="fade-up delay-3 mt-16 grid grid-cols-3 gap-6 max-w-lg md:mx-0 mx-auto">
+                        <div class="text-center">
+                            <p class="font-display text-3xl font-bold text-white">150+</p>
+                            <p class="text-slate-400 text-sm mt-1">Destinations</p>
+                        </div>
+                        <div class="text-center border-x border-white/20">
+                            <p class="font-display text-3xl font-bold text-white">10K+</p>
+                            <p class="text-slate-400 text-sm mt-1">Happy Clients</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="font-display text-3xl font-bold text-white">12yr</p>
+                            <p class="text-slate-400 text-sm mt-1">Experience</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right: Form -->
+                <div class="bg-white/90 rounded-2xl shadow-lg p-8 md:mt-0 mt-12 w-full max-w-md mx-auto">
+                    <h2 class="font-display text-2xl font-bold text-slate-900 mb-4">Get a Free Himachal Quote</h2>
+                    <form class="space-y-5">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none" placeholder="you@email.com">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-slate-700 mb-1">Phone</label>
+                            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,15}" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none" placeholder="Phone Number">
+                        </div>
+                        <div>
+                            <label for="destination" class="block text-sm font-medium text-slate-700 mb-1">Destination(s)</label>
+                            <input type="text" id="destination" name="destination" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none" placeholder="e.g. Shimla, Manali, Dharamshala">
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="w-1/2">
+                                <label for="adults" class="block text-sm font-medium text-slate-700 mb-1">Adults</label>
+                                <input type="number" id="adults" name="adults" min="1" max="20" value="2" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none" placeholder="2">
+                            </div>
+                            <div class="w-1/2">
+                                <label for="children" class="block text-sm font-medium text-slate-700 mb-1">Children</label>
+                                <input type="number" id="children" name="children" min="0" max="10" value="0" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none" placeholder="0">
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="w-1/2">
+                                <label for="checkin" class="block text-sm font-medium text-slate-700 mb-1">Check-in</label>
+                                <input type="date" id="checkin" name="checkin" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none">
+                            </div>
+                            <div class="w-1/2">
+                                <label for="checkout" class="block text-sm font-medium text-slate-700 mb-1">Check-out</label>
+                                <input type="date" id="checkout" name="checkout" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="special" class="block text-sm font-medium text-slate-700 mb-1">Special Request</label>
+                            <textarea id="special" name="special" rows="3" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none" placeholder="Let us know any special requests or details..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-ocean-600 hover:bg-ocean-700 text-white font-semibold py-3 rounded-lg transition">Request
+                            Quote</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/50">
+            <span class="text-xs">Scroll</span>
+            <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+        </div>
+    </section>
+
+
+
+    <!-- ===== FEATURED TOURS ===== -->
+    <section id="tours" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14">
+                <p class="text-xs font-semibold text-ocean-600 uppercase tracking-widest mb-3">Handpicked Himachal Escapes</p>
+                <h2 class="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-4">Featured Tours</h2>
+                <p class="text-slate-500 max-w-xl mx-auto">Snow peaks, pine forests, monasteries, and mountain villages
+                    across Himachal Pradesh.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+                <!-- Card 1: Shimla & Kufri -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100">
+                    <div class="relative overflow-hidden h-52">
+                        <img src="https://images.unsplash.com/photo-1518002054494-3a6f94352e9d?w=600&q=80"
+                            alt="Shimla and Kufri, Himachal Pradesh"
+                            class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                        <span
+                            class="absolute top-3 left-3 bg-ocean-600 text-white text-xs font-bold px-2.5 py-1 rounded-full">Popular</span>
+                        <span
+                            class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">4N/5D</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-1 text-amber-400 text-xs mb-2">★★★★★ <span
+                                class="text-slate-400 ml-1">(214)</span></div>
+                        <h3 class="font-display text-lg font-bold text-slate-900 mb-1">Shimla & Kufri</h3>
+                        <p class="text-slate-500 text-xs mb-3">Colonial Heritage • Pine Trails • Snow Activities</p>
+                        <ul class="text-xs text-slate-600 space-y-1 mb-4">
+                            <li class="flex items-center gap-1.5"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>The Ridge and Mall Road Walk</li>
+                            <li class="flex items-center gap-1.5"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Kufri Fun World and Viewpoint</li>
+                            <li class="flex items-center gap-1.5"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Jakhoo Temple Visit</li>
+                        </ul>
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                            <div><span class="text-slate-400 text-xs">From</span>
+                                <p class="font-display text-xl font-bold text-ocean-600">₹18,999</p>
+                            </div>
+                            <button type="button" data-tour="shimla-kufri"
+                                class="view-tour-btn bg-ocean-50 hover:bg-ocean-600 hover:text-white text-ocean-600 text-xs font-semibold px-4 py-2 rounded-full border border-ocean-200 hover:border-ocean-600 transition-all">View
+                                Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Manali & Solang -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100">
+                    <div class="relative overflow-hidden h-52">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80"
+                            alt="Manali and Solang Valley, Himachal Pradesh"
+                            class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                        <span
+                            class="absolute top-3 left-3 bg-rose-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">Adventure</span>
+                        <span
+                            class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">5N/6D</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-1 text-amber-400 text-xs mb-2">★★★★★ <span
+                                class="text-slate-400 ml-1">(301)</span></div>
+                        <h3 class="font-display text-lg font-bold text-slate-900 mb-1">Manali & Solang Valley</h3>
+                        <p class="text-slate-500 text-xs mb-3">Paragliding • River Views • Mountain Cafes</p>
+                        <ul class="text-xs text-slate-600 space-y-1 mb-4">
+                            <li class="flex items-center gap-1.5"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Solang Valley Adventure Day</li>
+                            <li class="flex items-center gap-1.5"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Hadimba Temple and Old Manali</li>
+                            <li class="flex items-center gap-1.5"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Atal Tunnel Excursion</li>
+                        </ul>
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                            <div><span class="text-slate-400 text-xs">From</span>
+                                <p class="font-display text-xl font-bold text-ocean-600">₹24,499</p>
+                            </div>
+                            <button type="button" data-tour="manali-solang"
+                                class="view-tour-btn bg-ocean-50 hover:bg-ocean-600 hover:text-white text-ocean-600 text-xs font-semibold px-4 py-2 rounded-full border border-ocean-200 hover:border-ocean-600 transition-all">View
+                                Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Dharamshala -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100">
+                    <div class="relative overflow-hidden h-52">
+                        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80"
+                            alt="Dharamshala and McLeod Ganj, Himachal Pradesh"
+                            class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                        <span
+                            class="absolute top-3 left-3 bg-teal-600 text-white text-xs font-bold px-2.5 py-1 rounded-full">Culture</span>
+                        <span
+                            class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">4N/5D</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-1 text-amber-400 text-xs mb-2">★★★★☆ <span
+                                class="text-slate-400 ml-1">(167)</span></div>
+                        <h3 class="font-display text-lg font-bold text-slate-900 mb-1">Dharamshala & McLeod Ganj</h3>
+                        <p class="text-slate-500 text-xs mb-3">Monasteries • Cafes • Tea Gardens</p>
+                        <ul class="text-xs text-slate-600 space-y-1 mb-4">
+                            <li class="flex items-center gap-1.5"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Namgyal Monastery Visit</li>
+                            <li class="flex items-center gap-1.5"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Bhagsu Waterfall Trail</li>
+                            <li class="flex items-center gap-1.5"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Kangra Tea Garden Experience</li>
+                        </ul>
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                            <div><span class="text-slate-400 text-xs">From</span>
+                                <p class="font-display text-xl font-bold text-ocean-600">₹19,999</p>
+                            </div>
+                            <button type="button" data-tour="dharamshala-mcleodganj"
+                                class="view-tour-btn bg-ocean-50 hover:bg-ocean-600 hover:text-white text-ocean-600 text-xs font-semibold px-4 py-2 rounded-full border border-ocean-200 hover:border-ocean-600 transition-all">View
+                                Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Spiti -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100">
+                    <div class="relative overflow-hidden h-52">
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80"
+                            alt="Spiti Valley, Himachal Pradesh"
+                            class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                        <span
+                            class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">Road Trip</span>
+                        <span
+                            class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">7N/8D</span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-1 text-amber-400 text-xs mb-2">★★★★★ <span
+                                class="text-slate-400 ml-1">(126)</span></div>
+                        <h3 class="font-display text-lg font-bold text-slate-900 mb-1">Spiti Valley Circuit</h3>
+                        <p class="text-slate-500 text-xs mb-3">High Passes • Monasteries • Stargazing</p>
+                        <ul class="text-xs text-slate-600 space-y-1 mb-4">
+                            <li class="flex items-center gap-1.5"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Key Monastery and Kaza Town</li>
+                            <li class="flex items-center gap-1.5"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Chandratal Lake Excursion</li>
+                            <li class="flex items-center gap-1.5"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Village Stay in Langza</li>
+                        </ul>
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                            <div><span class="text-slate-400 text-xs">From</span>
+                                <p class="font-display text-xl font-bold text-ocean-600">₹34,999</p>
+                            </div>
+                            <button type="button" data-tour="spiti-circuit"
+                                class="view-tour-btn bg-ocean-50 hover:bg-ocean-600 hover:text-white text-ocean-600 text-xs font-semibold px-4 py-2 rounded-full border border-ocean-200 hover:border-ocean-600 transition-all">View
+                                Details</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="#"
+                    class="inline-flex items-center gap-2 border-2 border-ocean-600 text-ocean-600 hover:bg-ocean-600 hover:text-white font-semibold px-8 py-3 rounded-full transition-all">
+                    View All Tours
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== TOUR DETAILS MODAL ===== -->
+    <div id="tour-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-hidden">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200">
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-wide text-ocean-600">Day-by-Day Itinerary</p>
+                    <h3 id="modal-tour-title" class="font-display text-2xl font-bold text-slate-900">Tour Details</h3>
+                    <p id="modal-tour-meta" class="text-sm text-slate-500 mt-1"></p>
+                </div>
+                <button id="tour-modal-close" type="button"
+                    class="w-9 h-9 rounded-lg border border-slate-200 text-slate-500 hover:text-slate-700 hover:bg-slate-50 text-xl leading-none"
+                    aria-label="Close itinerary modal">&times;</button>
+            </div>
+
+            <div class="px-6 py-5 overflow-y-auto max-h-[calc(90vh-90px)]">
+                <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 mb-6">
+                    <p id="modal-tour-overview" class="text-sm text-slate-700 leading-relaxed"></p>
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="font-semibold text-slate-900 mb-3">Itinerary</h4>
+                    <ul id="modal-tour-itinerary" class="space-y-2 text-sm text-slate-700"></ul>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="rounded-xl border border-emerald-200 bg-emerald-50/60 p-4">
+                        <h4 class="font-semibold text-emerald-800 mb-2">Inclusions</h4>
+                        <ul id="modal-tour-inclusions" class="space-y-1.5 text-sm text-emerald-900"></ul>
+                    </div>
+                    <div class="rounded-xl border border-rose-200 bg-rose-50/60 p-4">
+                        <h4 class="font-semibold text-rose-800 mb-2">Exclusions</h4>
+                        <ul id="modal-tour-exclusions" class="space-y-1.5 text-sm text-rose-900"></ul>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <button id="open-modal-quote-form" type="button"
+                        class="inline-flex items-center justify-center gap-2 bg-ocean-600 hover:bg-ocean-700 text-white font-semibold px-5 py-2.5 rounded-lg transition">
+                        Request Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== QUOTE FORM MODAL ===== -->
+    <div id="quote-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200">
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-wide text-ocean-600">Get a Free Himachal Quote</p>
+                    <h3 class="font-display text-2xl font-bold text-slate-900">Request Quote</h3>
+                </div>
+                <button id="quote-modal-close" type="button"
+                    class="w-9 h-9 rounded-lg border border-slate-200 text-slate-500 hover:text-slate-700 hover:bg-slate-50 text-xl leading-none"
+                    aria-label="Close quote modal">&times;</button>
+            </div>
+            <div class="px-6 py-5 overflow-y-auto max-h-[calc(90vh-90px)]">
+                <form id="quote-modal-form" class="space-y-5">
+                    <div>
+                        <label for="qm-name" class="block text-sm font-medium text-slate-700 mb-1">Name</label>
+                        <input type="text" id="qm-name" name="name" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="qm-email" class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                        <input type="email" id="qm-email" name="email" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none" placeholder="you@email.com">
+                    </div>
+                    <div>
+                        <label for="qm-phone" class="block text-sm font-medium text-slate-700 mb-1">Phone</label>
+                        <input type="tel" id="qm-phone" name="phone" required pattern="[0-9]{10,15}" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none" placeholder="Phone Number">
+                    </div>
+                    <div>
+                        <label for="qm-destination" class="block text-sm font-medium text-slate-700 mb-1">Destination(s)</label>
+                        <input type="text" id="qm-destination" name="destination" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none" placeholder="e.g. Shimla, Manali, Dharamshala">
+                    </div>
+                    <div class="flex gap-3">
+                        <div class="w-1/2">
+                            <label for="qm-adults" class="block text-sm font-medium text-slate-700 mb-1">Adults</label>
+                            <input type="number" id="qm-adults" name="adults" min="1" max="20" value="2" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none" placeholder="2">
+                        </div>
+                        <div class="w-1/2">
+                            <label for="qm-children" class="block text-sm font-medium text-slate-700 mb-1">Children</label>
+                            <input type="number" id="qm-children" name="children" min="0" max="10" value="0" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <div class="w-1/2">
+                            <label for="qm-checkin" class="block text-sm font-medium text-slate-700 mb-1">Check-in</label>
+                            <input type="date" id="qm-checkin" name="checkin" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none">
+                        </div>
+                        <div class="w-1/2">
+                            <label for="qm-checkout" class="block text-sm font-medium text-slate-700 mb-1">Check-out</label>
+                            <input type="date" id="qm-checkout" name="checkout" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="qm-special" class="block text-sm font-medium text-slate-700 mb-1">Special Request</label>
+                        <textarea id="qm-special" name="special" rows="3" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-ocean-400 outline-none" placeholder="Let us know any special requests or details..."></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-ocean-600 hover:bg-ocean-700 text-white font-semibold py-3 rounded-lg transition">Request
+                        Quote</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section id="why-us" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14">
+                <p class="text-xs font-semibold text-ocean-600 uppercase tracking-widest mb-3">Our Promise</p>
+                <h2 class="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-4">Why Choose Horizons?</h2>
+                <p class="text-slate-500 max-w-xl mx-auto">We don't just plan trips — we craft memories that last a
+                    lifetime.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div
+                    class="group bg-white rounded-2xl p-7 shadow-sm border border-slate-100 hover:border-ocean-200 hover:shadow-lg transition-all text-center">
+                    <div
+                        class="w-14 h-14 bg-ocean-100 group-hover:bg-ocean-600 rounded-2xl flex items-center justify-center mx-auto mb-5 transition-colors">
+                        <svg class="w-7 h-7 text-ocean-600 group-hover:text-white transition-colors" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-slate-900 mb-2">Best Price Guarantee</h3>
+                    <p class="text-slate-500 text-sm">Found it cheaper? We'll match any price and give you a ₹500
+                        voucher.</p>
+                </div>
+
+                <div
+                    class="group bg-white rounded-2xl p-7 shadow-sm border border-slate-100 hover:border-amber-200 hover:shadow-lg transition-all text-center">
+                    <div
+                        class="w-14 h-14 bg-amber-100 group-hover:bg-amber-500 rounded-2xl flex items-center justify-center mx-auto mb-5 transition-colors">
+                        <svg class="w-7 h-7 text-amber-600 group-hover:text-white transition-colors" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-slate-900 mb-2">24/7 Live Support</h3>
+                    <p class="text-slate-500 text-sm">Our travel experts are available round the clock — wherever you
+                        are in the world.</p>
+                </div>
+
+                <div
+                    class="group bg-white rounded-2xl p-7 shadow-sm border border-slate-100 hover:border-teal-200 hover:shadow-lg transition-all text-center">
+                    <div
+                        class="w-14 h-14 bg-teal-100 group-hover:bg-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-5 transition-colors">
+                        <svg class="w-7 h-7 text-teal-600 group-hover:text-white transition-colors" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-slate-900 mb-2">Tailor-Made Trips</h3>
+                    <p class="text-slate-500 text-sm">Every trip can be customized — dates, hotels, activities, diet
+                        preferences.</p>
+                </div>
+
+                <div
+                    class="group bg-white rounded-2xl p-7 shadow-sm border border-slate-100 hover:border-emerald-200 hover:shadow-lg transition-all text-center">
+                    <div
+                        class="w-14 h-14 bg-emerald-100 group-hover:bg-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-5 transition-colors">
+                        <svg class="w-7 h-7 text-emerald-600 group-hover:text-white transition-colors" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-slate-900 mb-2">Fully Insured Travel</h3>
+                    <p class="text-slate-500 text-sm">All packages include comprehensive travel insurance for complete
+                        peace of mind.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials" class="py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14">
+                <p class="text-xs font-semibold text-ocean-600 uppercase tracking-widest mb-3">Traveler Stories</p>
+                <h2 class="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-4">What Our Travelers Say</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Testimonial 1 -->
+                <div
+                    class="bg-gradient-to-br from-ocean-50 to-teal-50 rounded-2xl p-7 border border-ocean-100 relative">
+                    <div class="text-5xl font-display text-ocean-200 absolute top-4 right-6 leading-none">"</div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <img src="https://i.pravatar.cc/60?img=47" alt="Priya Sharma"
+                            class="w-12 h-12 rounded-full object-cover border-2 border-white shadow" />
+                        <div>
+                            <p class="font-semibold text-slate-900 text-sm">Priya Sharma</p>
+                            <p class="text-xs text-slate-500">Mumbai, India</p>
+                        </div>
+                    </div>
+                    <div class="flex text-amber-400 text-sm mb-4">★★★★★</div>
+                    <p class="text-slate-600 text-sm leading-relaxed">Our Bali trip was absolutely magical. Horizons
+                        handled everything flawlessly — the hotel was stunning, every transfer was on time, and our
+                        guide Ketut was incredibly knowledgeable. Already planning our Greece trip!</p>
+                    <p class="text-xs text-ocean-600 font-semibold mt-4">Bali Discovery Tour · Nov 2024</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div
+                    class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-7 border border-amber-100 relative md:mt-6">
+                    <div class="text-5xl font-display text-amber-200 absolute top-4 right-6 leading-none">"</div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <img src="https://i.pravatar.cc/60?img=12" alt="Rahul Mehta"
+                            class="w-12 h-12 rounded-full object-cover border-2 border-white shadow" />
+                        <div>
+                            <p class="font-semibold text-slate-900 text-sm">Rahul Mehta</p>
+                            <p class="text-xs text-slate-500">Bangalore, India</p>
+                        </div>
+                    </div>
+                    <div class="flex text-amber-400 text-sm mb-4">★★★★★</div>
+                    <p class="text-slate-600 text-sm leading-relaxed">The Maldives overwater villa experience was beyond
+                        anything I'd imagined. The team customized our honeymoon package to perfection. The 24/7 support
+                        feature gave us real confidence — they responded in 3 minutes at 2am!</p>
+                    <p class="text-xs text-amber-600 font-semibold mt-4">Maldives Honeymoon · Dec 2024</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div
+                    class="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl p-7 border border-teal-100 relative">
+                    <div class="text-5xl font-display text-teal-200 absolute top-4 right-6 leading-none">"</div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <img src="https://i.pravatar.cc/60?img=33" alt="Anjali Verma"
+                            class="w-12 h-12 rounded-full object-cover border-2 border-white shadow" />
+                        <div>
+                            <p class="font-semibold text-slate-900 text-sm">Anjali Verma</p>
+                            <p class="text-xs text-slate-500">Delhi, India</p>
+                        </div>
+                    </div>
+                    <div class="flex text-amber-400 text-sm mb-4">★★★★☆</div>
+                    <p class="text-slate-600 text-sm leading-relaxed">Kyoto in cherry blossom season was a dream. The
+                        itinerary struck a perfect balance between must-see highlights and off-the-beaten-path gems. The
+                        cooking class in Ubud was the highlight of our entire trip.</p>
+                    <p class="text-xs text-teal-600 font-semibold mt-4">Kyoto Cultural Tour · Mar 2025</p>
+                </div>
+
+            </div>
+
+            <!-- Trust bar -->
+            <div class="mt-12 flex flex-wrap items-center justify-center gap-8 text-center">
+                <div class="flex items-center gap-2 text-slate-600">
+                    <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <span class="font-semibold text-slate-800">4.9/5</span> on Google
+                </div>
+                <div class="flex items-center gap-2 text-slate-600">
+                    <svg class="w-5 h-5 text-ocean-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <span class="font-semibold text-slate-800">10,000+</span> reviews
+                </div>
+                <div class="flex items-center gap-2 text-slate-600">
+                    <svg class="w-5 h-5 text-teal-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+                    </svg>
+                    <span class="font-semibold text-slate-800">Trusted</span> by families, couples & solo travelers
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="cta-bg relative py-24 px-4 sm:px-6 lg:px-8">
+        <div class="absolute inset-0 bg-gradient-to-r from-ocean-900/85 to-teal-900/70"></div>
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+            <span
+                class="inline-block bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-bold px-4 py-1.5 rounded-full mb-6">🌍
+                Limited Time Offer — Save up to 20%</span>
+            <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">Ready for
+                Your<br />Next Adventure?</h2>
+            <p class="text-slate-300 text-lg mb-10 max-w-xl mx-auto">Talk to our travel experts for free. No commitment,
+                just personalized recommendations tailored to your dream trip.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact"
+                    class="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-white font-semibold px-8 py-4 rounded-full text-base shadow-lg transition-all hover:scale-105">
+                    Get a Free Quote
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+                <a href="tel:+919876543210"
+                    class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-8 py-4 rounded-full text-base backdrop-blur-sm transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    Call Us Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-14">
+                <p class="text-xs font-semibold text-ocean-600 uppercase tracking-widest mb-3">Got Questions?</p>
+                <h2 class="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-4">Frequently Asked</h2>
+            </div>
+
+            <div class="space-y-3" id="faq-container">
+
+                <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left"
+                        aria-expanded="false">
+                        <span class="font-semibold text-slate-800 text-sm sm:text-base">How far in advance should I book
+                            my tour?</span>
+                        <span class="faq-icon w-6 h-6 text-ocean-600 flex-shrink-0 ml-4 text-xl font-light">+</span>
+                    </button>
+                    <div class="faq-body px-6">
+                        <p class="text-slate-600 text-sm leading-relaxed pb-6">We recommend booking at least 30–60 days
+                            in advance for most international destinations. Peak season travel (December–February,
+                            summer school holidays) should be booked 3–6 months ahead. Last-minute tours are sometimes
+                            available — contact us for availability.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left"
+                        aria-expanded="false">
+                        <span class="font-semibold text-slate-800 text-sm sm:text-base">Can I customize a package or
+                            create my own itinerary?</span>
+                        <span class="faq-icon w-6 h-6 text-ocean-600 flex-shrink-0 ml-4 text-xl font-light">+</span>
+                    </button>
+                    <div class="faq-body px-6">
+                        <p class="text-slate-600 text-sm leading-relaxed pb-6">Absolutely! We specialize in tailor-made
+                            travel. You can modify any existing package or start from scratch. Simply tell us your
+                            destination, dates, budget, and preferences — our experts will craft a personalized
+                            itinerary within 24 hours.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left"
+                        aria-expanded="false">
+                        <span class="font-semibold text-slate-800 text-sm sm:text-base">What is your cancellation and
+                            refund policy?</span>
+                        <span class="faq-icon w-6 h-6 text-ocean-600 flex-shrink-0 ml-4 text-xl font-light">+</span>
+                    </button>
+                    <div class="faq-body px-6">
+                        <p class="text-slate-600 text-sm leading-relaxed pb-6">Cancellations 30+ days before departure
+                            receive a 90% refund. 15–30 days: 70% refund. 7–14 days: 50%. Less than 7 days: 25%. We also
+                            offer flexible rescheduling with no fee if done 30+ days before travel. All cancellations
+                            must be submitted in writing.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left"
+                        aria-expanded="false">
+                        <span class="font-semibold text-slate-800 text-sm sm:text-base">Do you handle visa assistance
+                            for international travel?</span>
+                        <span class="faq-icon w-6 h-6 text-ocean-600 flex-shrink-0 ml-4 text-xl font-light">+</span>
+                    </button>
+                    <div class="faq-body px-6">
+                        <p class="text-slate-600 text-sm leading-relaxed pb-6">Yes. We provide complete visa assistance
+                            for most destinations — document checklist, application review, submission support, and
+                            appointment scheduling. Some countries offer visa on arrival or e-visa which we help you
+                            process online. Visa fees are not included in package prices.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left"
+                        aria-expanded="false">
+                        <span class="font-semibold text-slate-800 text-sm sm:text-base">Are your tour packages suitable
+                            for families with young children?</span>
+                        <span class="faq-icon w-6 h-6 text-ocean-600 flex-shrink-0 ml-4 text-xl font-light">+</span>
+                    </button>
+                    <div class="faq-body px-6">
+                        <p class="text-slate-600 text-sm leading-relaxed pb-6">Yes! We have family-specific packages
+                            with child-friendly hotels, adjusted pacing, and age-appropriate activities. Children under
+                            5 typically stay free. We also offer senior-friendly itineraries with reduced walking
+                            distances and accessible accommodations upon request.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT / FOOTER ===== -->
+    <footer id="contact" class="bg-slate-900 text-slate-300">
+        <!-- Contact strip -->
+        <div class="border-b border-slate-700/60 py-10 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 text-center sm:text-left">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3">
+                    <div class="w-10 h-10 bg-ocean-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-ocean-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 uppercase tracking-wide font-semibold mb-0.5">Call Us</p>
+                        <p class="text-white font-semibold">+91 98765 43210</p>
+                        <p class="text-xs text-slate-500">Mon–Sat, 9am–8pm IST</p>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3">
+                    <div class="w-10 h-10 bg-amber-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 uppercase tracking-wide font-semibold mb-0.5">Email Us</p>
+                        <p class="text-white font-semibold">hello@horizonstravel.in</p>
+                        <p class="text-xs text-slate-500">We reply within 2 hours</p>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3">
+                    <div class="w-10 h-10 bg-teal-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 uppercase tracking-wide font-semibold mb-0.5">Visit Us</p>
+                        <p class="text-white font-semibold">Connaught Place, New Delhi</p>
+                        <p class="text-xs text-slate-500">110001, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main footer -->
+        <div class="py-14 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- About -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span
+                            class="w-8 h-8 rounded-lg bg-gradient-to-br from-ocean-500 to-teal-500 flex items-center justify-center text-white font-bold text-sm">H</span>
+                        <span class="font-display text-xl font-bold text-white">Horizons<span
+                                class="text-ocean-400">.</span></span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs">Crafting extraordinary travel
+                        experiences since 2013. From weekend getaways to epic world tours — your journey is our passion.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="#" aria-label="Facebook"
+                            class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-ocean-600 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram"
+                            class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-pink-600 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter / X"
+                            class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-sky-500 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube"
+                            class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-red-600 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20.05 12 20.05 12 20.05s6.88 0 8.59-.45a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+                                <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#tours" class="text-slate-400 hover:text-ocean-400 transition-colors">Featured
+                                Tours</a></li>
+                        <li><a href="#details" class="text-slate-400 hover:text-ocean-400 transition-colors">Tour
+                                Itinerary</a></li>
+                        <li><a href="#why-us" class="text-slate-400 hover:text-ocean-400 transition-colors">Why Choose
+                                Us</a></li>
+                        <li><a href="#testimonials"
+                                class="text-slate-400 hover:text-ocean-400 transition-colors">Reviews</a></li>
+                        <li><a href="#faq" class="text-slate-400 hover:text-ocean-400 transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-ocean-400 transition-colors">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Destinations -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Top Destinations</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-slate-400 hover:text-ocean-400 transition-colors">Bali,
+                                Indonesia</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-ocean-400 transition-colors">Santorini,
+                                Greece</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-ocean-400 transition-colors">Kyoto, Japan</a>
+                        </li>
+                        <li><a href="#" class="text-slate-400 hover:text-ocean-400 transition-colors">Maldives</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-ocean-400 transition-colors">Machu Picchu,
+                                Peru</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-ocean-400 transition-colors">Serengeti,
+                                Tanzania</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="border-t border-slate-800 py-6 px-4 sm:px-6 lg:px-8">
+            <div
+                class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+                <p>© 2025 Horizons Travel Pvt. Ltd. All rights reserved.</p>
+                <div class="flex items-center gap-1">
+                    <span>IATA Accredited</span> · <span>ATOL Protected</span> · <span>ISO 9001 Certified</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JS ===== -->
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const item = trigger.closest('.faq-item');
+                const body = item.querySelector('.faq-body');
+                const icon = trigger.querySelector('.faq-icon');
+                const isOpen = body.classList.contains('open');
+
+                // Close all
+                document.querySelectorAll('.faq-body').forEach(b => b.classList.remove('open'));
+                document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
+
+                // Open clicked if it was closed
+                if (!isOpen) {
+                    body.classList.add('open');
+                    icon.classList.add('open');
+                }
+            });
+        });
+
+        // Tour details modal
+        const tourDetails = {
+            'shimla-kufri': {
+                title: 'Shimla & Kufri',
+                meta: '4N/5D · From ₹18,999 per person',
+                overview: 'A relaxed hill-station escape covering colonial landmarks, forest viewpoints, and family-friendly snow activities around Shimla and Kufri.',
+                itinerary: [
+                    'Day 1: Arrival in Shimla, evening walk at Mall Road and The Ridge.',
+                    'Day 2: Visit Jakhoo Temple, Christ Church, and heritage lanes.',
+                    'Day 3: Full-day Kufri excursion with activities and scenic viewpoints.',
+                    'Day 4: Local sightseeing and leisure shopping in Shimla market.',
+                    'Day 5: Breakfast and departure with drop at pickup point.'
+                ],
+                inclusions: [
+                    '4 nights hotel accommodation',
+                    'Daily breakfast and dinner',
+                    'All local transfers by private cab',
+                    'Sightseeing as per itinerary',
+                    'Trip coordinator support'
+                ],
+                exclusions: [
+                    'Airfare or train tickets',
+                    'Lunch and personal snacks',
+                    'Adventure activity charges',
+                    'Entry tickets and camera fees',
+                    'Anything not listed in inclusions'
+                ]
+            },
+            'manali-solang': {
+                title: 'Manali & Solang Valley',
+                meta: '5N/6D · From ₹24,499 per person',
+                overview: 'An action-packed mountain holiday with valley adventures, temple visits, and a scenic high-altitude drive through Atal Tunnel.',
+                itinerary: [
+                    'Day 1: Arrive in Manali, check-in and riverside leisure evening.',
+                    'Day 2: Solang Valley adventure activities and snow point visit.',
+                    'Day 3: Hadimba Temple, Old Manali, and cafe hopping.',
+                    'Day 4: Excursion through Atal Tunnel and Sissu viewpoints.',
+                    'Day 5: Free day for shopping, spa, or optional rafting.',
+                    'Day 6: Breakfast and return transfer.'
+                ],
+                inclusions: [
+                    '5 nights stay in Manali',
+                    'Breakfast and dinner on all days',
+                    'Private cab for all sightseeing',
+                    'Atal Tunnel day excursion',
+                    'All driver allowances and tolls'
+                ],
+                exclusions: [
+                    'Flights, trains, and bus tickets',
+                    'Paragliding, zipline, and other activities',
+                    'Lunch and room service charges',
+                    'Heater charges if applicable',
+                    'Personal expenses and tips'
+                ]
+            },
+            'dharamshala-mcleodganj': {
+                title: 'Dharamshala & McLeod Ganj',
+                meta: '4N/5D · From ₹19,999 per person',
+                overview: 'A calm cultural retreat with monasteries, tea estates, and easy nature walks in the spiritual heart of Himachal.',
+                itinerary: [
+                    'Day 1: Arrival in Dharamshala and evening local market walk.',
+                    'Day 2: Namgyal Monastery, Dalai Lama Temple, and nearby cafes.',
+                    'Day 3: Bhagsu Waterfall trail and McLeod Ganj sightseeing.',
+                    'Day 4: Kangra tea garden tour and local handicraft shopping.',
+                    'Day 5: Checkout and departure transfer.'
+                ],
+                inclusions: [
+                    '4 nights hotel stay',
+                    'Breakfast and dinner',
+                    'Intercity and local cab transfers',
+                    'Monastery and tea garden sightseeing',
+                    '24/7 on-trip assistance'
+                ],
+                exclusions: [
+                    'Air/train fare to Himachal',
+                    'Lunch and extra beverages',
+                    'Any paid guide services',
+                    'Monument entry fees where applicable',
+                    'Travel insurance'
+                ]
+            },
+            'spiti-circuit': {
+                title: 'Spiti Valley Circuit',
+                meta: '7N/8D · From ₹34,999 per person',
+                overview: 'A high-altitude road trip through dramatic Himalayan landscapes, ancient monasteries, remote villages, and iconic Spiti viewpoints.',
+                itinerary: [
+                    'Day 1: Reach Shimla and overnight halt.',
+                    'Day 2: Drive to Kalpa via Kinnaur valley route.',
+                    'Day 3: Kalpa to Kaza via Nako and Tabo Monastery.',
+                    'Day 4: Explore Key Monastery, Kibber, and Chicham Bridge.',
+                    'Day 5: Day trip to Langza, Hikkim, and Komic villages.',
+                    'Day 6: Kaza to Chandratal with overnight camp stay.',
+                    'Day 7: Chandratal to Manali via Kunzum Pass and Atal Tunnel.',
+                    'Day 8: Departure after breakfast.'
+                ],
+                inclusions: [
+                    '7 nights accommodation/camps',
+                    'Breakfast and dinner throughout',
+                    'Dedicated vehicle for complete circuit',
+                    'Experienced mountain driver',
+                    'Permit assistance for Spiti route'
+                ],
+                exclusions: [
+                    'Travel to start point and from endpoint',
+                    'Lunch and personal purchases',
+                    'Oxygen cylinder or medical costs',
+                    'Any cost due to weather or road blockage',
+                    'GST and extra taxes if applicable'
+                ]
+            }
+        };
+
+        const tourModal = document.getElementById('tour-modal');
+        const modalCloseBtn = document.getElementById('tour-modal-close');
+        const modalTitle = document.getElementById('modal-tour-title');
+        const modalMeta = document.getElementById('modal-tour-meta');
+        const modalOverview = document.getElementById('modal-tour-overview');
+        const modalItinerary = document.getElementById('modal-tour-itinerary');
+        const modalInclusions = document.getElementById('modal-tour-inclusions');
+        const modalExclusions = document.getElementById('modal-tour-exclusions');
+        const openQuoteFormBtn = document.getElementById('open-modal-quote-form');
+        const quoteModal = document.getElementById('quote-modal');
+        const quoteModalCloseBtn = document.getElementById('quote-modal-close');
+        const quoteModalForm = document.getElementById('quote-modal-form');
+        const quoteDestinationInput = document.getElementById('qm-destination');
+
+        const renderList = (element, items, bulletClass) => {
+            element.innerHTML = items.map(item => `
+                <li class="flex items-start gap-2">
+                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full ${bulletClass}"></span>
+                    <span>${item}</span>
+                </li>
+            `).join('');
+        };
+
+        const openTourModal = (tourId) => {
+            const details = tourDetails[tourId];
+            if (!details) return;
+
+            modalTitle.textContent = details.title;
+            modalMeta.textContent = details.meta;
+            modalOverview.textContent = details.overview;
+            renderList(modalItinerary, details.itinerary, 'bg-ocean-500');
+            renderList(modalInclusions, details.inclusions, 'bg-emerald-500');
+            renderList(modalExclusions, details.exclusions, 'bg-rose-500');
+
+            tourModal.classList.remove('hidden');
+            tourModal.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
+        };
+
+        const closeTourModal = () => {
+            tourModal.classList.add('hidden');
+            tourModal.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+        };
+
+        const openQuoteModal = (tourName) => {
+            quoteDestinationInput.value = tourName || '';
+            quoteModal.classList.remove('hidden');
+            quoteModal.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
+        };
+
+        const closeQuoteModal = () => {
+            quoteModal.classList.add('hidden');
+            quoteModal.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+        };
+
+        document.querySelectorAll('.view-tour-btn').forEach(button => {
+            button.addEventListener('click', () => openTourModal(button.dataset.tour));
+        });
+
+        modalCloseBtn.addEventListener('click', closeTourModal);
+        quoteModalCloseBtn.addEventListener('click', closeQuoteModal);
+        openQuoteFormBtn.addEventListener('click', () => {
+            const selectedTourName = modalTitle.textContent;
+            closeTourModal();
+            openQuoteModal(selectedTourName);
+        });
+        quoteModalForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            alert('Quote request submitted! Our team will contact you shortly.');
+            quoteModalForm.reset();
+            closeQuoteModal();
+        });
+        tourModal.addEventListener('click', (event) => {
+            if (event.target === tourModal) closeTourModal();
+        });
+        quoteModal.addEventListener('click', (event) => {
+            if (event.target === quoteModal) closeQuoteModal();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !tourModal.classList.contains('hidden')) {
+                closeTourModal();
+            }
+            if (event.key === 'Escape' && !quoteModal.classList.contains('hidden')) {
+                closeQuoteModal();
+            }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
