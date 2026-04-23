@@ -67,6 +67,11 @@
             scroll-behavior: smooth;
         }
 
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
         /* Hero parallax feel */
         .hero-bg {
             background: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1800&q=80') center/cover no-repeat;
@@ -199,6 +204,69 @@
             animation-delay: .6s;
             opacity: 0;
         }
+
+        @media (hover: none) and (pointer: coarse) {
+            .tour-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero-badge {
+                max-width: 240px;
+                white-space: normal;
+                line-height: 1.2;
+                text-align: center;
+                justify-content: center;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 10px;
+                padding: .35rem .6rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+                line-height: 1.15;
+            }
+
+            .hero-desc {
+                font-size: .95rem;
+                line-height: 1.5;
+            }
+
+            .hero-cta {
+                font-size: .95rem;
+                padding: .7rem 1rem;
+            }
+
+            .hero-stats {
+                gap: .5rem;
+            }
+
+            .hero-stat-value {
+                font-size: 1.25rem;
+            }
+
+            .hero-stat-label {
+                font-size: .65rem;
+            }
+
+            .hero-form {
+                padding: .85rem;
+            }
+
+            .tour-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: .6rem;
+            }
+
+            .tour-footer .view-tour-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 
@@ -206,12 +274,12 @@
 
     <!-- ===== NAVBAR ===== -->
     <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14 sm:h-16">
             <!-- Logo -->
             <a href="#" class="flex items-center gap-2">
                 <span
                     class="w-8 h-8 rounded-lg bg-gradient-to-br from-ocean-500 to-teal-500 flex items-center justify-center text-white font-bold text-sm">H</span>
-                <span class="font-display text-xl font-700 text-slate-900">Himachal<span
+                <span class="font-display text-lg sm:text-xl font-700 text-slate-900">Himachal<span
                         class="text-ocean-500">Tours</span></span>
             </a>
             <!-- Desktop nav -->
@@ -232,7 +300,7 @@
                     +91 98765 43210
                 </a>
                 <a href="#" data-tour="Himachal Tour Package"
-                    class="open-quote-modal bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-4 py-2 rounded-full transition">Book
+                    class="open-quote-modal hidden sm:inline-flex bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-4 py-2 rounded-full transition">Book
                     Now</a>
                 <!-- Mobile menu button -->
                 <button id="menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100" aria-label="Open menu">
@@ -253,7 +321,7 @@
     </header>
 
     <!-- ===== HERO ===== -->
-    <section class="hero-bg relative min-h-screen flex items-center justify-center pt-16">
+    <section class="hero-bg relative overflow-hidden min-h-screen flex items-center justify-center pt-20 pb-10 sm:pt-16 sm:pb-0">
         <!-- Gradient overlay -->
         <div class="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-ocean-900/60 to-teal-900/40"></div>
         <!-- Floating decorative circles -->
@@ -263,25 +331,25 @@
         </div>
 
         <div class="relative z-10 w-full max-w-[90rem] mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <!-- Left: Text -->
                 <div class="text-center md:text-left">
                     <span
-                        class="fade-up inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm">
+                        class="hero-badge fade-up inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm">
                         <span class="w-2 h-2 rounded-full bg-amber-400 pulse-badge"></span>
                         Over 10,000 Happy Himachal Travelers
                     </span>
                     <h1
-                        class="fade-up delay-1 font-display text-5xl sm:text-6xl lg:text-7xl font-900 text-white leading-tight mb-6">
+                        class="hero-title fade-up delay-1 font-display text-4xl sm:text-6xl lg:text-7xl font-900 text-white leading-tight mb-5 sm:mb-6">
                         Himachal Tour Packages<br />
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">Mountains. Valleys. Memories.</span>
                     </h1>
-                    <p class="fade-up delay-2 text-lg sm:text-xl text-slate-300 max-w-2xl mb-10 leading-relaxed">
+                    <p class="hero-desc fade-up delay-2 text-base sm:text-xl text-slate-300 max-w-2xl mb-8 sm:mb-10 leading-relaxed">
                         Discover the magic of Himachal Pradesh with our curated tour packages. From Shimla's colonial charm to Manali's snowy peaks, experience adventure, culture, and nature in the heart of the Himalayas.
                     </p>
-                    <div class="fade-up delay-3 flex flex-col sm:flex-row gap-4 md:justify-start justify-center">
+                    <div class="fade-up delay-3 flex flex-col sm:flex-row gap-3 sm:gap-4 md:justify-start justify-center">
                         <a href="#" data-tour="Himachal Tour Package"
-                            class="open-quote-modal inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-white font-semibold text-base px-8 py-4 rounded-full shadow-lg shadow-amber-500/30 transition-all hover:scale-105">
+                            class="hero-cta open-quote-modal inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-white font-semibold text-base px-8 py-3.5 rounded-full shadow-lg shadow-amber-500/30 transition-all hover:scale-105">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -289,7 +357,7 @@
                             Book Now
                         </a>
                         <a href="#tours"
-                            class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold text-base px-8 py-4 rounded-full backdrop-blur-sm transition-all hover:scale-105">
+                            class="hero-cta inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold text-base px-8 py-3.5 rounded-full backdrop-blur-sm transition-all hover:scale-105">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 9l-7 7-7-7" />
@@ -297,23 +365,23 @@
                             View Packages
                         </a>
                     </div>
-                    <div class="fade-up delay-3 mt-16 grid grid-cols-3 gap-6 max-w-lg md:mx-0 mx-auto">
+                    <div class="hero-stats fade-up delay-3 mt-10 sm:mt-16 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg md:mx-0 mx-auto">
                         <div class="text-center">
-                            <p class="font-display text-3xl font-bold text-white">150+</p>
-                            <p class="text-slate-400 text-sm mt-1">Destinations</p>
+                            <p class="hero-stat-value font-display text-2xl sm:text-3xl font-bold text-white">150+</p>
+                            <p class="hero-stat-label text-slate-400 text-xs sm:text-sm mt-1">Destinations</p>
                         </div>
                         <div class="text-center border-x border-white/20">
-                            <p class="font-display text-3xl font-bold text-white">10K+</p>
-                            <p class="text-slate-400 text-sm mt-1">Happy Clients</p>
+                            <p class="hero-stat-value font-display text-2xl sm:text-3xl font-bold text-white">10K+</p>
+                            <p class="hero-stat-label text-slate-400 text-xs sm:text-sm mt-1">Happy Clients</p>
                         </div>
                         <div class="text-center">
-                            <p class="font-display text-3xl font-bold text-white">12yr</p>
-                            <p class="text-slate-400 text-sm mt-1">Experience</p>
+                            <p class="hero-stat-value font-display text-2xl sm:text-3xl font-bold text-white">12yr</p>
+                            <p class="hero-stat-label text-slate-400 text-xs sm:text-sm mt-1">Experience</p>
                         </div>
                     </div>
                 </div>
                 <!-- Right: Form -->
-                <div class="bg-white/90 rounded-2xl shadow-lg p-6 md:mt-0 mt-12 w-full max-w-md mx-auto">
+                <div class="hero-form bg-white/90 rounded-2xl shadow-lg p-4 sm:p-6 md:mt-0 mt-8 sm:mt-12 w-full max-w-md mx-auto">
                     <h2 class="font-display text-xl font-bold text-slate-900 mb-3">Get a Free Himachal Quote</h2>
                     <form class="space-y-3.5">
                         <div>
@@ -365,7 +433,7 @@
         </div>
 
         <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/50">
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-1 text-white/50">
             <span class="text-xs">Scroll</span>
             <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -376,20 +444,20 @@
 
 
     <!-- ===== FEATURED TOURS ===== -->
-    <section id="tours" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+    <section id="tours" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-14">
+            <div class="text-center mb-10 sm:mb-14">
                 <p class="text-xs font-semibold text-ocean-600 uppercase tracking-widest mb-3">Handpicked Himachal Escapes</p>
                 <h2 class="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-4">Featured Tours</h2>
                 <p class="text-slate-500 max-w-xl mx-auto">Snow peaks, pine forests, monasteries, and mountain villages
                     across Himachal Pradesh.</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
 
                 <!-- Card 1: Shimla & Kufri -->
                 <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100">
-                    <div class="relative overflow-hidden h-52">
+                    <div class="relative overflow-hidden h-48 sm:h-52">
                         <img src="https://images.unsplash.com/photo-1518002054494-3a6f94352e9d?w=600&q=80"
                             alt="Shimla and Kufri, Himachal Pradesh"
                             class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
@@ -411,7 +479,7 @@
                             <li class="flex items-center gap-1.5"><span
                                     class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Jakhoo Temple Visit</li>
                         </ul>
-                        <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                        <div class="tour-footer flex items-center justify-between pt-3 border-t border-slate-100">
                             <div><span class="text-slate-400 text-xs">From</span>
                                 <p class="font-display text-xl font-bold text-ocean-600">₹18,999</p>
                             </div>
@@ -424,7 +492,7 @@
 
                 <!-- Card 2: Manali & Solang -->
                 <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100">
-                    <div class="relative overflow-hidden h-52">
+                    <div class="relative overflow-hidden h-48 sm:h-52">
                         <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80"
                             alt="Manali and Solang Valley, Himachal Pradesh"
                             class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
@@ -446,7 +514,7 @@
                             <li class="flex items-center gap-1.5"><span
                                     class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Atal Tunnel Excursion</li>
                         </ul>
-                        <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                        <div class="tour-footer flex items-center justify-between pt-3 border-t border-slate-100">
                             <div><span class="text-slate-400 text-xs">From</span>
                                 <p class="font-display text-xl font-bold text-ocean-600">₹24,499</p>
                             </div>
@@ -459,7 +527,7 @@
 
                 <!-- Card 3: Dharamshala -->
                 <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100">
-                    <div class="relative overflow-hidden h-52">
+                    <div class="relative overflow-hidden h-48 sm:h-52">
                         <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80"
                             alt="Dharamshala and McLeod Ganj, Himachal Pradesh"
                             class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
@@ -481,7 +549,7 @@
                             <li class="flex items-center gap-1.5"><span
                                     class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Kangra Tea Garden Experience</li>
                         </ul>
-                        <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                        <div class="tour-footer flex items-center justify-between pt-3 border-t border-slate-100">
                             <div><span class="text-slate-400 text-xs">From</span>
                                 <p class="font-display text-xl font-bold text-ocean-600">₹19,999</p>
                             </div>
@@ -494,7 +562,7 @@
 
                 <!-- Card 4: Spiti -->
                 <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100">
-                    <div class="relative overflow-hidden h-52">
+                    <div class="relative overflow-hidden h-48 sm:h-52">
                         <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80"
                             alt="Spiti Valley, Himachal Pradesh"
                             class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
@@ -516,7 +584,7 @@
                             <li class="flex items-center gap-1.5"><span
                                     class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>Village Stay in Langza</li>
                         </ul>
-                        <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                        <div class="tour-footer flex items-center justify-between pt-3 border-t border-slate-100">
                             <div><span class="text-slate-400 text-xs">From</span>
                                 <p class="font-display text-xl font-bold text-ocean-600">₹34,999</p>
                             </div>
@@ -544,12 +612,12 @@
 
 
     <!-- ===== TOUR DETAILS MODAL ===== -->
-    <div id="tour-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-hidden">
-            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200">
+    <div id="tour-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-slate-900/70 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[92vh] sm:max-h-[90vh] overflow-hidden">
+            <div class="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-slate-200">
                 <div>
                     <p class="text-xs font-semibold uppercase tracking-wide text-ocean-600">Day-by-Day Itinerary</p>
-                    <h3 id="modal-tour-title" class="font-display text-2xl font-bold text-slate-900">Tour Details</h3>
+                    <h3 id="modal-tour-title" class="font-display text-xl sm:text-2xl font-bold text-slate-900">Tour Details</h3>
                     <p id="modal-tour-meta" class="text-sm text-slate-500 mt-1"></p>
                 </div>
                 <button id="tour-modal-close" type="button"
@@ -557,7 +625,7 @@
                     aria-label="Close itinerary modal">&times;</button>
             </div>
 
-            <div class="px-6 py-5 overflow-y-auto max-h-[calc(90vh-90px)]">
+            <div class="px-4 sm:px-6 py-4 sm:py-5 overflow-y-auto max-h-[calc(92vh-78px)] sm:max-h-[calc(90vh-90px)]">
                 <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 mb-6">
                     <p id="modal-tour-overview" class="text-sm text-slate-700 leading-relaxed"></p>
                 </div>
@@ -589,18 +657,18 @@
     </div>
 
     <!-- ===== QUOTE FORM MODAL ===== -->
-    <div id="quote-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden">
-            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200">
+    <div id="quote-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-slate-900/70 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[92vh] sm:max-h-[90vh] overflow-hidden">
+            <div class="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-slate-200">
                 <div>
                     <p class="text-xs font-semibold uppercase tracking-wide text-ocean-600">Get a Free Himachal Quote</p>
-                    <h3 class="font-display text-2xl font-bold text-slate-900">Request Quote</h3>
+                    <h3 class="font-display text-xl sm:text-2xl font-bold text-slate-900">Request Quote</h3>
                 </div>
                 <button id="quote-modal-close" type="button"
                     class="w-9 h-9 rounded-lg border border-slate-200 text-slate-500 hover:text-slate-700 hover:bg-slate-50 text-xl leading-none"
                     aria-label="Close quote modal">&times;</button>
             </div>
-            <div class="px-6 py-5 overflow-y-auto max-h-[calc(90vh-90px)]">
+            <div class="px-4 sm:px-6 py-4 sm:py-5 overflow-y-auto max-h-[calc(92vh-78px)] sm:max-h-[calc(90vh-90px)]">
                 <form id="quote-modal-form" class="space-y-3.5">
                     <div>
                         <label for="qm-name" class="block text-xs font-medium text-slate-700 mb-0.5">Name</label>
@@ -653,7 +721,7 @@
 
 
     <!-- ===== WHY CHOOSE US ===== -->
-    <section id="why-us" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+    <section id="why-us" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-14">
                 <p class="text-xs font-semibold text-ocean-600 uppercase tracking-widest mb-3">Our Promise</p>
@@ -729,7 +797,7 @@
     </section>
 
     <!-- ===== TESTIMONIALS ===== -->
-    <section id="testimonials" class="py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+    <section id="testimonials" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-14">
                 <p class="text-xs font-semibold text-ocean-600 uppercase tracking-widest mb-3">Traveler Stories</p>
@@ -826,7 +894,7 @@
     </section>
 
     <!-- ===== CTA BANNER ===== -->
-    <section class="cta-bg relative py-24 px-4 sm:px-6 lg:px-8">
+    <section class="cta-bg relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
         <div class="absolute inset-0 bg-gradient-to-r from-ocean-900/85 to-teal-900/70"></div>
         <div class="relative z-10 max-w-3xl mx-auto text-center">
                 <span
@@ -858,7 +926,7 @@
     </section>
 
     <!-- ===== FAQ ===== -->
-    <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+    <section id="faq" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div class="max-w-3xl mx-auto">
             <div class="text-center mb-14">
                 <p class="text-xs font-semibold text-ocean-600 uppercase tracking-widest mb-3">Got Questions?</p>
@@ -997,9 +1065,9 @@
 
         <!-- Main footer -->
         <div class="py-14 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div class="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
                 <!-- About -->
-                <div class="lg:col-span-2">
+                <div class="col-span-2 lg:col-span-2">
                     <div class="flex items-center gap-2 mb-4">
                         <span
                             class="w-8 h-8 rounded-lg bg-gradient-to-br from-ocean-500 to-teal-500 flex items-center justify-center text-white font-bold text-sm">H</span>
